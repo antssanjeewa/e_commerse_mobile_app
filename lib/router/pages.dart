@@ -3,10 +3,14 @@ import 'package:go_router/go_router.dart';
 
 enum Pages {
   home,
+  productDetails,
 }
 
 extension PagesExtention on Pages {
-  String toPath() {
+  String toPath({bool isSubRoute = false}) {
+    if (isSubRoute) {
+      return name;
+    }
     return '/$name';
   }
 

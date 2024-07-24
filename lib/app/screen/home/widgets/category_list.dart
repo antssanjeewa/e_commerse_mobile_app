@@ -1,16 +1,8 @@
+import 'package:e_comm_app/app/models/category.dart';
 import 'package:flutter/material.dart';
 
 class CategoryList extends StatelessWidget {
-  CategoryList({super.key});
-
-  final categoryList = [
-    'images/beauty.png',
-    'images/all/jacket.png',
-    'images/all/sweet.png',
-    'images/all/miband.jpg',
-    'images/jewelry.png',
-    'images/beauty.png',
-  ];
+  const CategoryList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +11,7 @@ class CategoryList extends StatelessWidget {
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
+          final category = categoriesList[index];
           return Column(
             children: [
               Container(
@@ -27,16 +20,17 @@ class CategoryList extends StatelessWidget {
                 decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     image: DecorationImage(
-                      image: AssetImage(categoryList[index]),
+                      image: AssetImage(category.image),
                       fit: BoxFit.cover,
                     )),
               ),
-              Text("Cat 0$index")
+              const SizedBox(height: 10),
+              Text(category.title)
             ],
           );
         },
         separatorBuilder: (context, index) => const SizedBox(width: 20),
-        itemCount: 6,
+        itemCount: categoriesList.length,
       ),
     );
   }

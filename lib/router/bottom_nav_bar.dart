@@ -32,10 +32,11 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
           Pages.home.go(context);
           break;
         case 1:
+          // Pages.productDetails.go(context);
           context.go('/chat');
           break;
         default:
-          Pages.home.go(context);
+          // Pages.home.go(context);
           break;
       }
     }
